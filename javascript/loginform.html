@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+
+  <body>
+    <script>
+      function login(form) {
+        var email = form.uemail.value;
+        var password = form.upassword.value;
+
+        if (email == "user2@gmail.com" && password == 1234) {
+          alert("login successfull");
+        } else {
+          alert("invalid email or password");
+        }
+      }
+    </script>
+
+    <form>
+      <lable>EMAIL</lable>
+      <input
+        type="email"
+        name="uemail"
+        placeholder="enter your email id"
+      /><br /><br />
+      <lable>password</lable>
+      <input
+        type="password"
+        name="upassword"
+        placeholder="enter your password "
+      /><br /><br />
+      <input type="submit" value="login" onclick="login(this.form)" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function covid()
+      {
+          let url="https://data.covid19india.org/data.json";
+          let mydata=await(await fetch(url)).json();
+          document.write("total number of days: "+mydata["cases_time_series"].length++
+          "<br>");
+          document.write(mydata["cases_time_series"][0]["date"]);
+
+      }
+      covid();
+    </script>
+  </body>
+</html>

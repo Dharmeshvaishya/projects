@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+  <body>
+    <form>
+      name : <input type="text" name="uname" /><br />
+      email : <input type="email" name="uemail" /><br />
+      phone : <input type="phone" name="uphone" /><br />
+      password : <input type="password" name="upassword" /><br />
+      address : <input type="address" name="uaddress" /><br />
+      gender : male <input type="radio" name="gender" value="male" /><br />
+      female <input type="radio" name="gender" value="female" /><br />
+      state : <input type="state" name="ustate" /><br />
+      city :
+      <select name="ucity">
+        <option value="ahmdbd">ahemdabad</option>
+        <option value="bhvn">bhavnagar</option>
+        <option value="mhsn">mehshsana</option>
+      </select>
+      <input type="submit" onclick="check (this.form); return false;" />
+    </form>
+    <mark id="msg"></mark>
+
+    <script>
+      function check(form) {
+        var name = form.uname.value;
+        var email = form.uemail.value;
+        var phone = form.uphone.value;
+        var password = form.upassword.value;
+        var address = form.uaddress.value;
+        var gender = form.gender.value;
+        var state = form.ustate.value;
+        var city = form.ucity.value;
+        document.getElementById("msg").innerHTML =
+          " name : " +
+          name +
+          " <br>email is " +
+          email +
+          " <br>phone is " +
+          phone +
+          " <br>password is " +
+          password +
+          " <br>address is " +
+          address +
+          " <br>gender is" +
+          gender +
+          " <br>state is " +
+          state +
+          " <br>city is" +
+          city;
+      }
+    </script>
+  </body>
+</html>

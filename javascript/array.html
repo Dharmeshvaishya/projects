@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+  <body>
+    <script>
+      var a = [10, 25, 30, 35, 40, 53, 60];
+      document.write(a + "<br>");
+      document.write("total number of element : " + a.length + "<br>");
+      document.write(a[1] + "<br>");
+      document.write(a[5] + "<br");
+
+      for (var i = 0; i < a.length; i++) {
+        //document.write("<br>" +a[i]);
+
+        if (i % 2 == 0) {
+          document.write("<b style='color:green'>" + a[i] + "</b><br>");
+        } else {
+          document.write("<b style='color:red'>" + a[i] + "</b><br>");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+  <body>
+    <script>
+      //function with no argument and no return value
+      function one() {
+        document.write("function one called<br>");
+      }
+      one();
+
+      //function with argument but no return value
+      function two(a, b) {
+        document.write(
+          " addtion of " + a + " and " + b + " is: " + (a + b) + " <br> "
+        );
+      }
+      two(10, 20);
+
+      //function with no argument but return value
+      function three() {
+        return "infolabz<br>";
+      }
+      var obj = three();
+      document.write(obj);
+
+      //function with argument and return value
+      function four(i, j) {
+        return i - j;
+      }
+      var obj2 = four(20, 10);
+      document.write(obj2);
+    </script>
+  </body>
+</html>

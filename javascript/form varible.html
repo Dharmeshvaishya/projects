@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+
+  <body>
+    <script>
+      function check(form) {
+        var stock = form.uprice.value;
+        var pass = form.upassword.value;
+        var city = form.ucity.value;
+        var add = form.uaddress.value;
+        var gender = form.gender.value;
+        document.getElementById("msg").innerHTML =
+          "live price : " +
+          stock +
+          "<br>password is " +
+          pass +
+          "<br> city is " +
+          city +
+          "<br> address : " +
+          gender;
+      }
+    </script>
+    <form>
+      price : <input type="text" name="uprice" /><br />
+      password : <input type="password" name="upassword" /><br />
+      city :
+      <select name="ucity">
+        <option value="rjt">rajkot</option>
+        <option value="st">surat</option></select
+      ><br />
+      gender: <br />
+      male <input type="radio" name="gender" value="male" /> female
+      <input type="radio" name="gender" value="female" /><br />
+      address: <textarea name="uaddress"></textarea><br />
+      <input type="submit" onclick="check (this.form); return false;" />
+    </form>
+    <mark id="msg"></mark>
+  </body>
+</html>

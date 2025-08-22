@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link rel="stylesheet" href="./src/style.css" /> -->
+    <link rel="stylesheet" href="style2.css" />
+    <title>ECOM JS</title>
+  </head>
+
+  <body>
+    <!-- Header Start -->
+    <header class="section-navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+              src="/public/RVLOGO4.png"
+              alt="thapa eCommerce logo"
+              class="logo"
+              width="80%"
+              height="Auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li class="nav-item">
+              <a href="home.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">about</a>
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link">products</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- start form section -->
+    <main>
+      <section class="user-container login-section--display">
+        <div class="registration">
+          <div class="grid-two--columm">
+            <div class="form-text">
+              <h2>Hello, Friends</h2>
+              <p>
+                to keep connected with us please login with your personal info
+              </p>
+              <button class="login-btn">login Here</button>
+            </div>
+
+            <div class="registration-form">
+              <h2>Create Account</h2>
+              <div class="social-icons">
+                <i class="fa-brands fa-discord"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin"></i>
+              </div>
+              <p>or use your emails for registration</p>
+
+              <form action="#">
+                <div class="input-field">
+                  <label for="username">
+                    <input
+                      type="text"
+                      name="#"
+                      id="username"
+                      placeholder="username"
+                    />
+                  </label>
+                </div>
+
+                <div class="input-field">
+                  <label for="email">
+                    <input
+                      type="email"
+                      name="#"
+                      id="email"
+                      placeholder="@mail.com"
+                    />
+                  </label>
+                </div>
+
+                <div class="input-field">
+                  <label for="password">
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder=" password"
+                    />
+                  </label>
+                </div>
+
+                <div class="input-field">
+                  <input type="submit" value="register" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="login">
+          <div class="grid-two--columm">
+            <div class="form-text">
+              <h2>Welcome Back!</h2>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="registration-btn">Register Here</button>
+            </div>
+
+            <div class="login-form">
+              <h2>Sing in</h2>
+              <div class="social-icons">
+                <i class="fa-brands fa-discord"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin"></i>
+              </div>
+              <p>or use your account</p>
+
+              <form action="#">
+                <div class="input-field">
+                  <label for="email1">
+                    <input
+                      type="email"
+                      name="#"
+                      id="email1"
+                      placeholder="@mail.com"
+                    />
+                  </label>
+                </div>
+
+                <div class="input-field">
+                  <label for="password1">
+                    <input
+                      type="password"
+                      name="#"
+                      id="password1"
+                      placeholder="password"
+                    />
+                  </label>
+                </div>
+
+                <div class="input-field">
+                  <input type="submit" value="login" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- end form section -->
+
+    <script>
+      const user_con = document.querySelector(".user-container");
+      const regis_btn = document.querySelector(".registration-btn");
+      const login_btn = document.querySelector(".login-btn");
+
+      regis_btn.addEventListener("click", () => {
+        user_con.classList.add("login-section--display");
+      });
+
+      login_btn.addEventListener("click", () => {
+        user_con.classList.remove("login-section--display");
+      });
+    </script>
+
+    <script src="../src/login.js"></script>
+  </body>
+</html>

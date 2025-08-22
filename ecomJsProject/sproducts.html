@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECOM JS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+
+  <body>
+    <!--* Header Start -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+            <p>Free shipping, 30-day return or refund guarantee</p>
+          </div>
+          <div class="sing_in_up">
+            <button id="logoutBtn" class="top_txt head_txt">Logout</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+              src="/public/RVLOGO4.png"
+              alt="thapa eCommerce logo"
+              class="logo"
+              width="80%"
+              height="Auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li class="nav-item">
+              <a href="home.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">about</a>
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link">products</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">contact</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="addtoCart.html"
+                class="nav-link add-to-cart-button"
+                id="cartValue"
+              >
+                <i class="fa-solid fa-cart-shopping">0</i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!--* Header End -->
+
+    <!--* START SINGLE PRODUCT -->
+    <section class="single-product-container">
+      <div id="singleProductContainer"></div>
+    </section>
+
+    <template id="singleProductTemplate">
+      <div class="product-details">
+        <div class="product-image" id="imageContainer">
+          <img
+            src="your-image.jpg"
+            class="single-product-image"
+            id="productImage"
+          />
+          <div class="magnifier" id="magnifier"></div>
+        </div>
+
+        <div class="product-info">
+          <h1 class="productName"></h1>
+          <p class="productCategory"></p>
+          <p class="productDescription"></p>
+          <p class="productPrice"></p>
+          <p class="productActualPrice"></p>
+          <p><strong>stock:</strong> <span class="productStock"></span></p>
+          <div class="stockElement">
+            <button class="cartIncrement">+</button>
+            <p class="productQuantity">1</p>
+            <button class="cartDecrement">-</button>
+          </div>
+          <button class="add-to-cart-button">
+            <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    </template>
+    <!--* END SINGLE PRODUCT -->
+
+    <!--* start footer section -->
+    <footer class="section-footer">
+      <div class="footer-container container">
+        <div class="content_1">
+          <img src="./public/logo_2.png" alt="logo" />
+          <p>
+            Welcome to RV EcomStore, your ultimate destination for cutting-edge
+            gadgets!
+          </p>
+          <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />
+        </div>
+
+        <div class="content_2">
+          <h4>Shopping</h4>
+          <a href="#">Computer Store</a>
+          <a href="#">Laptop Store</a>
+          <a href="#">Accessories</a>
+          <a href="#">Sales & Discount</a>
+        </div>
+
+        <div class="content_3">
+          <h4>Experience</h4>
+          <a href="./contact.html">Contact Us</a>
+          <a href="" target="_blank">Payment Method</a>
+          <a href="" target="_blank">Delivery</a>
+          <a href="" target="_blank">Return and Exchange</a>
+        </div>
+
+        <div class="content_4">
+          <h4>NEWSLETTER</h4>
+          <p>
+            Be the first to know about new<br />
+            arrivals, sales & promos!
+          </p>
+          <div class="f-mail">
+            <input type="email" placeholder="Your Email" />
+            <i class="bx bx-envelope"></i>
+          </div>
+          <hr />
+        </div>
+      </div>
+
+      <div class="f-design">
+        <div class="f-design-txt">
+          <p>Design and Code By Dharmesh Vaishya</p>
+        </div>
+      </div>
+    </footer>
+    <!--* end footer section -->
+
+    <!--*  start image zoom hover -->
+    <!-- <script>
+      const imageContainer = document.getElementById("imageContainer");
+      const image = document.getElementById("productImage");
+      const magnifier = document.getElementById("magnifier");
+
+      imageContainer.addEventListener("mousemove", function (e) {
+        magnifier.style.display = "block";
+
+        const rect = image.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const magnifierSize = 100;
+
+        let top = y - magnifierSize / 2;
+        let left = x - magnifierSize / 2;
+
+        // clamp to image bounds
+        top = Math.max(0, Math.min(top, image.offsetHeight - magnifierSize));
+        left = Math.max(0, Math.min(left, image.offsetWidth - magnifierSize));
+
+        magnifier.style.top = top + "px";
+        magnifier.style.left = left + "px";
+
+        magnifier.style.backgroundImage = `url(${image.src})`;
+        magnifier.style.backgroundSize = `${image.offsetWidth * 2}px ${
+          image.offsetHeight * 2
+        }px`;
+        magnifier.style.backgroundPosition = `-${left * 2}px -${top * 2}px`;
+      });
+
+      imageContainer.addEventListener("mouseleave", function () {
+        magnifier.style.display = "none";
+      });
+    </script> -->
+    <!--* end image zoom hover -->
+
+    <script type="module" src="./src/singleProducts.js"></script>
+  </body>
+</html>

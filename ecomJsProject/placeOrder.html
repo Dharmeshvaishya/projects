@@ -1,0 +1,78 @@
+<!--! wasted-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- Checkout Section -->
+    <section
+      id="checkoutSection"
+      class="checkout-section"
+      style="display: none"
+    >
+      <div class="container checkout-container">
+        <!-- Left: Product Summary -->
+        <div class="checkout-summary">
+          <h3>Your Cart Summary</h3>
+          <div id="checkoutCartContainer"></div>
+        </div>
+
+        <!-- Right: User and Payment Details -->
+        <div class="checkout-details">
+          <h3>Payment Details</h3>
+          <input type="text" id="userName" placeholder="Full Name" required />
+          <input
+            type="email"
+            id="userEmail"
+            placeholder="Email Address"
+            required
+          />
+          <input
+            type="text"
+            id="userMobile"
+            placeholder="Mobile Number"
+            required
+          />
+          <input type="text" id="userArea" placeholder="Area" required />
+          <input type="text" id="userPincode" placeholder="Pin Code" required />
+          <textarea
+            id="userAddress"
+            placeholder="Full Address"
+            required
+          ></textarea>
+
+          <div class="payment-method">
+            <h4>Select Payment Method</h4>
+            <label><input type="radio" name="payment" value="UPI" /> UPI</label>
+            <label
+              ><input type="radio" name="payment" value="Card" /> Card</label
+            >
+            <label
+              ><input type="radio" name="payment" value="COD" /> Cash on
+              Delivery</label
+            >
+          </div>
+
+          <button id="payNowBtn">Pay Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Success Popup -->
+    <div
+      id="paymentSuccessPopup"
+      class="payment-success-popup"
+      style="display: none"
+    >
+      <div class="popup-content">
+        <h2>🎉 Payment Successful!</h2>
+        <p>Your order has been placed successfully.</p>
+        <button id="goHomeBtn">Go to Home</button>
+      </div>
+    </div>
+  </body>
+</html>

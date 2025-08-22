@@ -1,0 +1,144 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #4203a9, #90bafc);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main container */
+.container {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 30px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Heading styles */
+.calculator h1 {
+  font-size: 45px;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+
+.calculator h1 span {
+  color: #ffb900;
+}
+
+/* Input box styling */
+.input-box {
+  margin: 30px 0;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Input field */
+.input-box input {
+  flex: 1 1 60%;
+  min-width: 200px;
+  padding: 14px 20px;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  border-radius: 8px;
+  position: relative;
+  color: #333;
+}
+
+/* Button styling */
+.input-box button {
+  background: #ffb900;
+  border: 0;
+  outline: 0;
+  padding: 14px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+.input-box button:hover {
+  background: #ffd74d;
+  transform: translateY(-2px);
+}
+
+/* Date picker icon adjustments (if needed for type="date" fallback) */
+.input-box input::-webkit-calendar-picker-indicator {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  position: absolute;
+  background-position: calc(100% - 10px);
+  background-size: 30px;
+  cursor: pointer;
+}
+
+/* Result display */
+#result {
+  font-size: 22px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+#result span {
+  color: #ffb900;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .calculator h1 {
+    font-size: 36px;
+  }
+
+  .input-box {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .input-box input,
+  .input-box button {
+    width: 100%;
+  }
+}
+
+.hidden-picker {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .calculator h1 {
+    font-size: 28px;
+  }
+
+  #result {
+    font-size: 18px;
+  }
+}

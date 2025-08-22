@@ -1,0 +1,26 @@
+<html lang="em">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+
+  <body>
+    <script>
+      var mydata = {
+        maharashrta: {
+          mumbai: { city: "metro city", metro: "yes" },
+          population: "20 cr",
+        },
+        gujrat: ["ahemdabad", "surat", "rajkot"],
+        rajasthan: [
+          "ajmer",
+          "jaisalmer",
+          { capital: "jaipur" },
+          ["mewad", "rj", "inr"],
+        ],
+      };
+      document.write(mydata["maharshrta"][1] + "<br>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../src/style.css" />
+    <title>ECOM JS</title>
+  </head>
+
+  <body style="display: none">
+    <!-- Header Start -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+            <p>Free shipping, 30-day return or refund guarantee</p>
+          </div>
+          <div class="sing_in_up">
+            <a href="index.html">Login</a>
+            <button id="logoutBtn" class="top_txt head_txt">Logout</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+              src="/public/RVLOGO4.png"
+              alt="thapa eCommerce logo"
+              class="logo"
+              width="80%"
+              height="Auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li class="nav-item">
+              <a href="home.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">about</a>
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link">products</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">contact</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="addtoCart.html"
+                class="nav-link add-to-cart-button"
+                id="cartValue"
+              >
+                <i class="fa-solid fa-cart-shopping">0</i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Main section start -->
+    <section class="addToCartElement">
+      <div class="container">
+        <section>
+          <div id="productCartContainer"></div>
+        </section>
+        <!-- Total Box Start -->
+        <section class="productCartTotalElem">
+          <div class="productCartTotalElement">
+            <p>Selected Offer Summary</p>
+            <div class="productOrderTotal">
+              <div>
+                <p>Sub Total:</p>
+                <p class="productSubTotal">0</p>
+              </div>
+              <div>
+                <p>Tax:</p>
+                <p class="productTax">₹50</p>
+              </div>
+              <hr />
+              <div>
+                <p>Final Total:</p>
+                <p class="productFinalTotal">0</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Total Box End -->
+
+        <!-- start payment method -->
+        <section class="payment-method-section">
+          <div class="payment-method-container">
+            <button id="placeOrderBtn" class="place-order-btn">
+              Place order
+            </button>
+          </div>
+        </section>
+        <!-- end payment method -->
+      </div>
+    </section>
+    <!-- Main section end -->
+
+    <!-- start checkout section -->
+    <section
+      id="checkoutSection"
+      class="checkout-section"
+      style="display: none"
+    >
+      <div class="container checkout-container">
+        <!-- start product summary -->
+        <div class="checkout-summary">
+          <h3>Your Cart Summary</h3>
+          <div id="checkoutCartContainer"></div>
+        </div>
+        <!-- end left product summary -->
+
+        <!-- start right user payment details-->
+        <div class="checkout-details">
+          <h3>payment details</h3>
+          <input type="text" id="userName" placeholder="Full Name" required />
+          <input
+            type="email"
+            id="userEmail"
+            placeholder="email address"
+            required
+          />
+          <input
+            type="text"
+            id="userMobile"
+            placeholder="mobile number"
+            required
+          />
+          <input type="text" id="userArea" placeholder="area" required />
+          <input type="text" id="userPincode" placeholder="pin code" required />
+          <textarea
+            id="userAddress"
+            placeholder="full address"
+            required
+          ></textarea>
+
+          <div class="payment-method">
+            <h4>select payment method</h4>
+            <label><input type="radio" name="payment" value="UPI" /> UPI</label>
+            <label
+              ><input type="radio" name="payment" value="Card" /> Card</label
+            >
+            <label
+              ><input type="radio" name="payment" value="COD" /> Cash on
+              Delivery</label
+            >
+          </div>
+
+          <button id="payNowBtn">Pay Now</button>
+        </div>
+        <!-- end right user payment details-->
+      </div>
+    </section>
+    <!-- end checkout section -->
+
+    <!-- start payment success popup -->
+    <div
+      id="paymentSuccessPopup"
+      class="payment-seccess-popup"
+      style="display: none"
+    >
+      <div class="popup-content">
+        <h2>payment successfull!</h2>
+        <p>your order has been placed successfully.</p>
+        <button id="goHomeBtn">Go to Home</button>
+      </div>
+    </div>
+    <!-- end payment success popup -->
+
+    <!-- start template for product -->
+    <template id="productCartTemplate">
+      <div class="cards" id="cardValue">
+        <article class="information [ card ]">
+          <div>
+            <span class="category"></span>
+          </div>
+          <div class="imageContainer">
+            <img class="productImage" src="" alt="" />
+          </div>
+
+          <h2 class="productName"></h2>
+
+          <p class="productPrice"></p>
+
+          <div class="stockElement">
+            <button class="cartIncrement">+</button>
+            <p class="productQuantity" data-quantity="1">1</p>
+            <button class="cartDecrement">-</button>
+          </div>
+
+          <!-- remove button -->
+          <button class="add-to-cart-button remove-to-cart-button">
+            Remove
+          </button>
+        </article>
+      </div>
+    </template>
+    <!-- end template for product -->
+
+    <!-- start footer section -->
+    <footer class="section-footer">
+      <div class="footer-container container">
+        <div class="content_1">
+          <img src="./public/logo_2.png" alt="logo" />
+          <p>
+            Welcome to RV EcomStore, your ultimate destination for cutting-edge
+            gadgets!
+          </p>
+          <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />
+        </div>
+
+        <div class="content_2">
+          <h4>Shopping</h4>
+          <a href="home.html">Computer Store</a>
+          <a href="home.html">Laptop Store</a>
+          <a href="home.html">Accessories</a>
+          <a href="home.html">Sales & Discount</a>
+        </div>
+
+        <div class="content_3">
+          <h4>Experience</h4>
+          <a href="./contact.html">Contact Us</a>
+          <a href="addtoCart.html">Payment Method</a>
+          <a href="addtoCart.html">Delivery</a>
+          <a href="" target="_blank">Return and Exchange</a>
+        </div>
+
+        <div class="content_4">
+          <h4>NEWSLETTER</h4>
+          <p>
+            Be the first to know about new<br />
+            arrivals, sales & promos!
+          </p>
+          <div class="f-mail">
+            <input type="email" placeholder="Your Email" />
+            <i class="bx bx-envelope"></i>
+          </div>
+          <hr />
+        </div>
+      </div>
+
+      <div class="f-design">
+        <div class="f-design-txt">
+          <p>Design and Code By Dharmesh Vaishya</p>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer section -->
+
+    <script type="module" src="../src/showAddToCartCards.js"></script>
+    <script type="module" src="../src/protect.js"></script>
+  </body>
+</html>

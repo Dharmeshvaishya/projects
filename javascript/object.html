@@ -1,0 +1,22 @@
+<html lang="em">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+  </head>
+  <body>
+    <script>
+      var mydata = {};
+      document.write(mydata + "<br>");
+      var newdata = { gujrat: "ahemdabad" };
+      document.write(newdata + "<br>");
+      document.write(newdata["gujrat"] + "<br>");
+
+      var dataobj = { ahemdabad: 100, surat: 200, rajkot: 300 };
+      document.write(dataobj["rajkot"] + "<br>");
+
+      var dataobj = { ahemdabad: 100, surat: [200, 250, 0], rajkot: 300 };
+      document.write(dataobj["surat"][1]);
+    </script>
+  </body>
+</html>
